@@ -3,12 +3,14 @@ package com.example.example;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
      String mVerificationId;
      PhoneAuthProvider.ForceResendingToken mResendToken;
 
+   private ProgressDialog _loadingBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         getSupportActionBar().setTitle("Login");
+
+        _loadingBar = new ProgressDialog(this);
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
@@ -83,12 +89,27 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String _number = _phone.getText().toString();
-                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                       "+91" + _number,
-                        60,
-                        TimeUnit.SECONDS,
-                        LoginActivity.this,
-                        mCallbacks);
+
+                if(TextUtils.isEmpty(_number))
+                {
+                    Toast.makeText(LoginActivity.this, "Please enter your phone Number Correctly", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    _loadingBar.setTitle("Phone Authentication");
+                    _loadingBar.setMessage("Please wait, we are authenticating your phone number");
+                    _loadingBar.setCanceledOnTouchOutside(false);
+                    _loadingBar.show();
+
+                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                            "+91" + _number,
+                            60,
+                            TimeUnit.SECONDS,
+                            LoginActivity.this,
+                            mCallbacks);
+                    _loadingBar.dismiss();
+
+                }
             }
         });
 
@@ -103,6 +124,11 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    _loadingBar.setTitle("Verifying");
+                    _loadingBar.setMessage("Please wait, while we are verifying");
+                    _loadingBar.setCanceledOnTouchOutside(false);
+                    _loadingBar.show();
+
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, _verificationCode);
                     signInWithPhoneAuthCredential(credential);
                 }
@@ -118,12 +144,13 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
+                            _loadingBar.dismiss();
                             Intent main = new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(main);
 
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                         } else {
+                            _loadingBar.dismiss();
                             Toast.makeText(LoginActivity.this, "Error! Unable to login", Toast.LENGTH_SHORT).show();
                         }
                     }
