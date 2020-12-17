@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -18,8 +19,7 @@ public class UserDetails extends AppCompatActivity
     Button Submit;
     Users _users;
 
-
-    DatabaseReference userDB;
+    DatabaseReference userData;
     FirebaseAuth mAuth;
 
 
@@ -27,12 +27,6 @@ public class UserDetails extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
-
-
-        userDB = FirebaseDatabase.getInstance().getReference();
-        mAuth = FirebaseAuth.getInstance();
-       // userDB = FirebaseDatabase.getInstance().getReference();
-
 
         firstName=findViewById(R.id.FirstName);
         lastName=findViewById(R.id.LastName);
@@ -45,6 +39,8 @@ public class UserDetails extends AppCompatActivity
         companyaddress=findViewById(R.id.CompanyAddress);
         Submit=findViewById(R.id.Usersubmit);
 
+      userData = FirebaseDatabase.getInstance("https://loca-e3bf3-default-rtdb.firebaseio.com/").getReference();
+      mAuth = FirebaseAuth.getInstance();
 
 
         Submit.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +57,9 @@ public class UserDetails extends AppCompatActivity
                 String _address=address.getText().toString();
                 String _companyName=companyname.getText().toString();
                 String _companyAddress=companyaddress.getText().toString();
-                _users = new Users(_firstName,_lastName,_dob,_gender,_email,_phoneNumber,_address, _companyName,_companyAddress);
-                userDB.child("Users").child(mAuth.getUid()).setValue(_users);
+
+                _users = new Users(_firstName,_lastName,_dob,_gender,_email,_phoneNumber,_address,_companyName,_companyAddress);
+                userData.child("Users").child(mAuth.getUid()).setValue(_users);
 
                 Intent main=new Intent(UserDetails.this,MainActivity.class);
                 startActivity(main);
