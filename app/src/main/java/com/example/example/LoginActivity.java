@@ -145,9 +145,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             _loadingBar.dismiss();
-                            Intent main = new Intent(LoginActivity.this,MainActivity.class);
-                            startActivity(main);
-
+                            Intent user = new Intent(LoginActivity.this,UserDetails.class);
+                            startActivity(user);
+                            finish();
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                         } else {
                             _loadingBar.dismiss();
