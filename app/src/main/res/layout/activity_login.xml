@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginBottom="431dp"
-        android:background="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/gradient"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -85,7 +85,7 @@
         android:padding="15dp"
         android:text="Submit"
         android:textSize="18dp"
-        app:backgroundTint="@color/purple_200"
+        android:background="@drawable/gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

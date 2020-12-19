@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 signInWithPhoneAuthCredential(credential);
                 Toast.makeText(LoginActivity.this, "You have been Successfully registered", Toast.LENGTH_SHORT).show();
+                _loadingBar.dismiss();
             }
 
             @Override
@@ -67,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
                 _submit.setVisibility(View.VISIBLE);
                 _code.setVisibility(View.INVISIBLE);
                 _verify.setVisibility(View.INVISIBLE);
+
+                _loadingBar.dismiss();
             }
 
             @Override
@@ -80,6 +83,8 @@ public class LoginActivity extends AppCompatActivity {
                 _submit.setVisibility(View.INVISIBLE);
                 _verify.setVisibility(View.VISIBLE);
                 _code.setVisibility(View.VISIBLE);
+
+                _loadingBar.dismiss();
 
                 Toast.makeText(LoginActivity.this, "Code has been sent to" + _phone.getText().toString(), Toast.LENGTH_SHORT).show();
             }
@@ -107,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                             TimeUnit.SECONDS,
                             LoginActivity.this,
                             mCallbacks);
-                    _loadingBar.dismiss();
+
 
                 }
             }
@@ -145,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             _loadingBar.dismiss();
-                            Intent user = new Intent(LoginActivity.this,UserDetails.class);
+                            Intent user = new Intent(LoginActivity.this,SelectionActivity.class);
                             startActivity(user);
                             finish();
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();

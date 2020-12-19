@@ -10,18 +10,16 @@ import android.widget.Button;
 public class SelectionActivity extends AppCompatActivity {
     Button sell,shop;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
-        sell=findViewById(R.id.sell);
-        shop=findViewById(R.id.buy);
+        sell = findViewById(R.id.sell);
+        shop = findViewById(R.id.buy);
         sell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent user= new Intent(SelectionActivity.this,UserDetails.class);
+                Intent user = new Intent(SelectionActivity.this, UserDetails.class);
                 startActivity(user);
 
             }
@@ -30,7 +28,7 @@ public class SelectionActivity extends AppCompatActivity {
         shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent main=new Intent(SelectionActivity.this,MainActivity.class);
+                Intent main = new Intent(SelectionActivity.this, MainActivity.class);
                 startActivity(main);
             }
         });

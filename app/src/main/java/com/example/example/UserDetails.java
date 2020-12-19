@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -58,11 +60,19 @@ public class UserDetails extends AppCompatActivity
                 String _companyName=companyname.getText().toString();
                 String _companyAddress=companyaddress.getText().toString();
 
-                _users = new Users(_firstName,_lastName,_dob,_gender,_email,_phoneNumber,_address,_companyName,_companyAddress);
-                userData.child("Users").child(mAuth.getUid()).setValue(_users);
 
-                Intent main=new Intent(UserDetails.this,MainActivity.class);
-                startActivity(main);
+                if (TextUtils.isEmpty(_firstName) || TextUtils.isEmpty(_lastName))
+                {
+                    Toast.makeText(UserDetails.this, "Please enter your name", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    _users = new Users(_firstName, _lastName, _dob, _gender, _email, _phoneNumber, _address, _companyName, _companyAddress);
+                    userData.child("Users").child(mAuth.getUid()).setValue(_users);
+
+
+                    Intent main = new Intent(UserDetails.this, MainActivity.class);
+                    startActivity(main);
+                }
             }
         });
 
