@@ -8,9 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +30,9 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText _phone,_code;
     Button _submit,_verify;
+    TextView _loginTitle;
+
+    Animation phoneAnim,submitAnim,appName;
 
     FirebaseAuth mAuth;
      PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
@@ -44,6 +50,15 @@ public class LoginActivity extends AppCompatActivity {
         _code = findViewById(R.id.Verification);
         _submit = findViewById(R.id.submit);
         _verify = findViewById(R.id.verify);
+        _loginTitle = findViewById(R.id.loginTitle);
+
+        phoneAnim = AnimationUtils.loadAnimation(this,R.anim.anim_left);
+        submitAnim = AnimationUtils.loadAnimation(this,R.anim.anim_right);
+        appName = AnimationUtils.loadAnimation(this,R.anim.anim_top);
+
+        _phone.setAnimation(phoneAnim);
+        _submit.setAnimation(submitAnim);
+        _loginTitle.setAnimation(appName);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -58,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 signInWithPhoneAuthCredential(credential);
                 Toast.makeText(LoginActivity.this, "You have been Successfully registered", Toast.LENGTH_SHORT).show();
+                _loadingBar.dismiss();
             }
 
             @Override
@@ -67,6 +83,8 @@ public class LoginActivity extends AppCompatActivity {
                 _submit.setVisibility(View.VISIBLE);
                 _code.setVisibility(View.INVISIBLE);
                 _verify.setVisibility(View.INVISIBLE);
+
+                _loadingBar.dismiss();
             }
 
             @Override
@@ -80,6 +98,11 @@ public class LoginActivity extends AppCompatActivity {
                 _submit.setVisibility(View.INVISIBLE);
                 _verify.setVisibility(View.VISIBLE);
                 _code.setVisibility(View.VISIBLE);
+
+                _code.setAnimation(phoneAnim);
+                _verify.setAnimation(submitAnim);
+
+                _loadingBar.dismiss();
 
                 Toast.makeText(LoginActivity.this, "Code has been sent to" + _phone.getText().toString(), Toast.LENGTH_SHORT).show();
             }
@@ -107,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                             TimeUnit.SECONDS,
                             LoginActivity.this,
                             mCallbacks);
-                    _loadingBar.dismiss();
+
 
                 }
             }
@@ -145,7 +168,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             _loadingBar.dismiss();
-                            Intent user = new Intent(LoginActivity.this,UserDetails.class);
+                            Intent user = new Intent(LoginActivity.this,SelectionActivity.class);
                             startActivity(user);
                             finish();
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
