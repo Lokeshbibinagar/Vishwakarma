@@ -4,22 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+
     tools:context=".SelectionActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient"
+        android:id="@+id/selectionBackground"
+
+        ></androidx.constraintlayout.widget.ConstraintLayout>
     <Button
         android:id="@+id/buy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/cardview_shadow_end_color"
+        android:fontFamily="serif"
+        android:paddingLeft="70dp"
+        android:paddingTop="10dp"
+        android:paddingRight="70dp"
+        android:paddingBottom="10dp"
         android:text="shop"
         android:textColor="@color/white"
         android:textSize="22dp"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:fontFamily="serif"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,14 +39,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/cardview_shadow_end_color"
+        android:fontFamily="serif"
+        android:paddingLeft="70dp"
+        android:paddingTop="10dp"
+        android:paddingRight="70dp"
+        android:paddingBottom="10dp"
         android:text="sell"
         android:textColor="@color/white"
         android:textSize="22dp"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:fontFamily="serif"
         android:textStyle="bold|italic"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,13 +56,14 @@
         app:layout_constraintVertical_bias="0.47000003" />
 
     <TextView
+        android:id="@+id/selectionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/cardview_light_background"
+        android:fontFamily="serif"
         android:text="TextView"
         android:textColor="@color/white"
         android:textSize="35dp"
-        android:fontFamily="serif"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
