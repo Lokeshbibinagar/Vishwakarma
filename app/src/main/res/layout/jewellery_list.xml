@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/JewelleryGroup">
+
+        <RadioButton
+            android:id="@+id/earrings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Earrings"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="12dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/Necklace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Necklace"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="12dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/Bangles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bangles/Rings"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="12dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/JewelleryOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="12dp"
+            ></RadioButton>
+
+    </RadioGroup>
+
+</LinearLayout>

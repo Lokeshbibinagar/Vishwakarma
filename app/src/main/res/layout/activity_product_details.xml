@@ -131,84 +131,132 @@
                  >
                  <RadioButton
                      android:id="@+id/Electronics"
-                     android:layout_width="wrap_content"
+                     android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:text="Electronics"
+                     android:onClick="onElectronics"
                      android:textSize="25dp"
                      android:fontFamily="serif"
                      android:layout_marginLeft="30dp"
                      android:layout_marginTop="22dp"
                      ></RadioButton>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/electronicsLayout"
+                     android:orientation="vertical"/>
                   <RadioButton
                       android:id="@+id/HomeAppliances"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:text="Home Appliances"
+                      android:onClick="onHomeAppliances"
                       android:textSize="25dp"
                       android:fontFamily="serif"
                       android:layout_marginLeft="30dp"
                       android:layout_marginTop="22dp"
                       ></RadioButton>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/homeAppliancesLayout"
+                     android:orientation="vertical"/>
                  <RadioButton
                      android:id="@+id/Clothing"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:text="Clothing"
+                     android:onClick="onClothing"
                      android:textSize="25dp"
                      android:fontFamily="serif"
                      android:layout_marginLeft="30dp"
                      android:layout_marginTop="22dp"
                      ></RadioButton>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/clothingLayout"
+                     android:orientation="vertical"/>
                  <RadioButton
                      android:id="@+id/Jewellery"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:text="Jewellery"
+                     android:onClick="onJewellery"
                      android:textSize="25dp"
                      android:fontFamily="serif"
                      android:layout_marginLeft="30dp"
                      android:layout_marginTop="22dp"
                      ></RadioButton>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/jewelleryLayout"
+                     android:orientation="vertical"/>
                  <RadioButton
                      android:id="@+id/Cosmetics"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:text="Cosmetics"
+                     android:onClick="onCosmetics"
                      android:textSize="25dp"
                      android:fontFamily="serif"
                      android:layout_marginLeft="30dp"
                      android:layout_marginTop="22dp"
                      ></RadioButton>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/CosmeticsLayout"
+                     android:orientation="vertical"/>
                  <RadioButton
                      android:id="@+id/Furniture"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
                          android:text="Furniture"
+                     android:onClick="onFurniture"
                          android:textSize="25dp"
                          android:fontFamily="serif"
                          android:layout_marginLeft="30dp"
                          android:layout_marginTop="22dp"
                      ></RadioButton>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/FurnitureLayout"
+                     android:orientation="vertical"/>
                  <RadioButton
                      android:id="@+id/HouseholdItems"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:text="HouseholdItems"
+                     android:onClick="onHousehold"
                      android:textSize="25dp"
                      android:fontFamily="serif"
                      android:layout_marginLeft="30dp"
                      android:layout_marginTop="22dp"
                      ></RadioButton>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/HouseholdItemsLayout"
+                     android:orientation="vertical"/>
                  <RadioButton
                      android:id="@+id/Stationery"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:text="Stationery"
+                     android:onClick="onStationery"
                      android:textSize="25dp"
                      android:fontFamily="serif"
                      android:layout_marginLeft="30dp"
                      android:layout_marginTop="22dp"
                      ></RadioButton>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/StationeryLayout"
+                     android:orientation="vertical"/>
                  <RadioButton
                      android:id="@+id/Groceries"
                      android:layout_width="match_parent"
@@ -219,6 +267,11 @@
                      android:layout_marginLeft="30dp"
                      android:layout_marginTop="22dp"
                      ></RadioButton>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/GroceriesLayout"
+                     android:orientation="vertical"/>
              </RadioGroup>
 
 

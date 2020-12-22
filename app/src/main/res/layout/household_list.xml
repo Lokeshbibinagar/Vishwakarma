@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/HouseholdItemsGroup"
+        >
+
+        <RadioButton
+            android:id="@+id/plates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Plates"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="22dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/glasses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Glasses/Cups"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/utensils"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Utensils"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/bedSheets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bed Sheets"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/Curtains"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Curtains"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/houseHoldOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+
+    </RadioGroup>
+
+</LinearLayout>

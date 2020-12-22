@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clothingKids"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kids:"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/black"
+            android:textStyle="bold|italic"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="22dp"
+            />
+
+    <RadioButton
+        android:id="@+id/kidsJeans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jeans/pants"
+        android:textSize="18dp"
+        android:fontFamily="serif"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="12dp"
+        ></RadioButton>
+    <RadioButton
+        android:id="@+id/kidsTops"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tops/Shirts"
+        android:textSize="18dp"
+        android:fontFamily="serif"
+        android:layout_marginLeft="50dp"
+        ></RadioButton>
+    <RadioButton
+        android:id="@+id/kidsNightWears"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Night Wear"
+        android:textSize="18dp"
+        android:fontFamily="serif"
+        android:layout_marginLeft="50dp"
+        ></RadioButton>
+        <RadioButton
+            android:id="@+id/kidsOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="12dp"
+            ></RadioButton>
+
+    </RadioGroup>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clothingWomen"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Women:"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/black"
+            android:textStyle="bold|italic"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="22dp"
+            />
+
+        <RadioButton
+            android:id="@+id/WomenCasual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Casual Wear"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="12dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/traditional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Traditional wear/Kurthis/Sarees "
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/womenWinterWear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Winter Wear/sweaters/hoddies"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/womenInnerWear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inner Wear"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/womenOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="12dp"
+            ></RadioButton>
+
+    </RadioGroup>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clothingMen"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Men: "
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/black"
+            android:textStyle="bold|italic"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="22dp"
+            />
+
+        <RadioButton
+            android:id="@+id/MenCasual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Casual Wear"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="12dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/MenTraditional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Traditional wear/Kurthas"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/MenWinterWear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Winter Wear/sweaters/hoddies"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/MenInnerWear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inner Wear"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/MenOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="12dp"
+            ></RadioButton>
+
+    </RadioGroup>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
