@@ -4,13 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProductDetails extends AppCompatActivity {
 
     LinearLayout _electronicsLayout,_homeAppliancesLayout,_clothingLayout,_jewelleryLayout,_cosmeticsLayout,_furnitureLayout,_householdLayout,_stationeryLayout;
     static int elecCount=0,homeApplCount=0,clothingCount=0,jewCount=0,cosCount=0,furCount=0,householdCount=0,stationeryCount=0;
     View ElecView,HomeApplView,ClothingView,jewView,CosView,furView,householdView,StationeryView;
+    LinearLayout _productLayout;
+    TextView _productHeadTitle;
+
+
+    Animation left,right,top,bottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +34,17 @@ public class ProductDetails extends AppCompatActivity {
         _furnitureLayout = findViewById(R.id.FurnitureLayout);
         _householdLayout = findViewById(R.id.HouseholdItemsLayout);
         _stationeryLayout = findViewById(R.id.StationeryLayout);
+
+        _productLayout = findViewById(R.id.ProductLayout);
+        _productHeadTitle = findViewById(R.id.ProductHeadTitle);
+
+        left = AnimationUtils.loadAnimation(this,R.anim.anim_left);
+        right = AnimationUtils.loadAnimation(this,R.anim.anim_right);
+        top = AnimationUtils.loadAnimation(this,R.anim.anim_top);
+        bottom = AnimationUtils.loadAnimation(this,R.anim.anim_bottom);
+
+        _productLayout.setAnimation(top);
+
     }
 
     public void onElectronics(View view)
@@ -222,4 +242,23 @@ public class ProductDetails extends AppCompatActivity {
         }
     }
 
+    public void onGroceries(View view)
+    {
+       _electronicsLayout.removeView(ElecView);
+       _homeAppliancesLayout.removeView(HomeApplView);
+       _clothingLayout.removeView(ClothingView);
+       _jewelleryLayout.removeView(jewView);
+       _cosmeticsLayout.removeView(CosView);
+       _furnitureLayout.removeView(furView);
+       _householdLayout.removeView(householdView);
+       _stationeryLayout.removeView(StationeryView);
+
+       elecCount=0;
+       homeApplCount=0;
+       clothingCount=0;
+       jewCount=0;
+       furCount=0;
+       householdCount=0;
+       stationeryCount=0;
+    }
 }
