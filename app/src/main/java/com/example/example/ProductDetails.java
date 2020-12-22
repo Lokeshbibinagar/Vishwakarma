@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +18,9 @@ public class ProductDetails extends AppCompatActivity {
     View ElecView,HomeApplView,ClothingView,jewView,CosView,furView,householdView,StationeryView;
     LinearLayout _productLayout;
     TextView _productHeadTitle;
+    Button _submit;
 
+    String msg="";
 
     Animation left,right,top,bottom;
 
@@ -45,6 +48,16 @@ public class ProductDetails extends AppCompatActivity {
 
         _productLayout.setAnimation(top);
 
+
+        _submit = findViewById(R.id.ProductSubmit);
+
+        _submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ProductDetails.this, msg, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     public void onElectronics(View view)
@@ -67,6 +80,8 @@ public class ProductDetails extends AppCompatActivity {
             householdCount=0;
             stationeryCount=0;
             elecCount++;
+
+            msg = "Electronic";
         }
     }
 
@@ -74,6 +89,8 @@ public class ProductDetails extends AppCompatActivity {
     {
         if(homeApplCount <= 0)
         {
+            msg = "Home Appliances";
+
             HomeApplView = getLayoutInflater().inflate(R.layout.home_appliances_list,null,false);
             _homeAppliancesLayout.addView(HomeApplView);
             _electronicsLayout.removeView(ElecView);
@@ -98,6 +115,8 @@ public class ProductDetails extends AppCompatActivity {
     {
         if(clothingCount <= 0)
         {
+            msg = "Clothing";
+
             ClothingView = getLayoutInflater().inflate(R.layout.clothing_list,null,false);
             _clothingLayout.addView(ClothingView);
             _electronicsLayout.removeView(ElecView);
@@ -123,6 +142,8 @@ public class ProductDetails extends AppCompatActivity {
     {
         if(jewCount <= 0)
         {
+            msg = "Jewellery";
+
             jewView = getLayoutInflater().inflate(R.layout.jewellery_list,null,false);
             _jewelleryLayout.addView(jewView);
             _homeAppliancesLayout.removeView(HomeApplView);
@@ -147,6 +168,8 @@ public class ProductDetails extends AppCompatActivity {
     {
         if(cosCount <= 0)
         {
+            msg = "Cosmetics";
+
             CosView = getLayoutInflater().inflate(R.layout.cosmetics_list,null,false);
             _cosmeticsLayout.addView(CosView);
             _electronicsLayout.removeView(ElecView);
@@ -171,6 +194,8 @@ public class ProductDetails extends AppCompatActivity {
     {
         if(furCount <= 0)
         {
+            msg = "Furniture";
+
             furView = getLayoutInflater().inflate(R.layout.furniture_list,null,false);
             _furnitureLayout.addView(furView);
             _electronicsLayout.removeView(ElecView);
@@ -196,6 +221,8 @@ public class ProductDetails extends AppCompatActivity {
     {
         if(householdCount <= 0)
         {
+            msg = "House Hold";
+
             householdView = getLayoutInflater().inflate(R.layout.household_list,null,false);
             _householdLayout.addView(householdView);
             _electronicsLayout.removeView(ElecView);
@@ -221,6 +248,8 @@ public class ProductDetails extends AppCompatActivity {
     {
         if (stationeryCount <= 0)
         {
+            msg = "Stationery";
+
             StationeryView = getLayoutInflater().inflate(R.layout.stationery_list,null,false);
             _stationeryLayout.addView(StationeryView);
             _electronicsLayout.removeView(ElecView);
@@ -244,6 +273,8 @@ public class ProductDetails extends AppCompatActivity {
 
     public void onGroceries(View view)
     {
+        msg = "Groceries";
+
        _electronicsLayout.removeView(ElecView);
        _homeAppliancesLayout.removeView(HomeApplView);
        _clothingLayout.removeView(ClothingView);
