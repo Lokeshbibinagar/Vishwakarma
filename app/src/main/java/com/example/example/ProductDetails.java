@@ -281,4 +281,89 @@ public class ProductDetails extends AppCompatActivity {
        householdCount=0;
        stationeryCount=0;
     }
+
+    public void onMobile(View view)
+    {
+        msg = "Mobile";
+    }
+
+    public void onTabs(View view)
+    {
+        msg = "Tabs";
+    }
+
+    public void onTV(View view)
+    {
+        msg = "TV";
+    }
+
+    public void onComputer(View view)
+    {
+        msg = "Computer";
+    }
+
+    public void onSpeaker(View view)
+    {
+        msg = "Speaker";
+    }
+
+    public void onElectronicsOthers(View view)
+    {
+        msg = "ElectronicsOther";
+    }
+
+    public void onWashingMachine(View view)
+    {
+        msg = "WashingMachine";
+    }
+
+    public void onRefrigerator(View view)
+    {
+        msg = "Refrigerator";
+    }
+
+    public void onAC(View view)
+    {
+        msg = "AC";
+    }
+
+    public void onChimney(View view)
+    {
+        msg = "Chimney";
+    }
+
+    public void onFans(View view)
+    {
+        msg = "Fans";
+    }
+
+    public void onLights(View view)
+    {
+        msg = "Lights";
+    }
+
+    public void onHomeOthers(View view)
+    {
+        msg = "HomeOthers";
+    }
+
+    public void onEarrings(View view)
+    {
+        msg = "Earrings";
+    }
+
+    public void onNecklace(View view)
+    {
+        msg = "Necklace";
+    }
+
+    public void onBangles(View view)
+    {
+        msg = "Bangles";
+    }
+
+    public void onJewelleryOthers(View view)
+    {
+        msg = "JewelleryOthers";
+    }
 }
