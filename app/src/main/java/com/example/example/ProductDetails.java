@@ -54,7 +54,14 @@ public class ProductDetails extends AppCompatActivity {
         _submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ProductDetails.this, msg, Toast.LENGTH_SHORT).show();
+
+                if (msg.equals("Mobile") || msg.equals("Tabs") || msg.equals("TV") || msg.equals("Computer") || msg.equals("Speaker") || msg.equals("ElectronicsOthers")) {
+                    Toast.makeText(ProductDetails.this, "Electronics: " + msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(msg.equals("WashingMachine") || msg.equals("Refrigerator") || msg.equals("AC") || msg.equals("Chimney") || msg.equals("Fans") || msg.equals("Lights") || msg.equals("HomeOthers"))
+                {
+                    Toast.makeText(ProductDetails.this, "Home Appliances: " + msg, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
