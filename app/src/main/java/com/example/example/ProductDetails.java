@@ -475,4 +475,60 @@ public class ProductDetails extends AppCompatActivity {
     public void onHouseholdOthers(View view) {
         msg = "HouseHoldOthers";
     }
+
+    public void onKidsJeans(View view) {
+        msg = "KidsJeans";
+    }
+
+    public void onKidsTops(View view) {
+        msg = "KidsTops";
+    }
+
+    public void onKidsNightWear(View view) {
+        msg = "KidsNightWear";
+    }
+
+    public void onKidsOthers(View view) {
+        msg = "KidsOthers";
+    }
+
+    public void onWomenCasual(View view) {
+        msg = "WomenCasual";
+    }
+
+    public void onWomenTraditional(View view) {
+        msg = "WomenTraditional";
+    }
+
+    public void onWomenWinter(View view) {
+        msg = "WomenWinter";
+    }
+
+    public void onWomenInner(View view) {
+        msg = "WomenInner";
+    }
+
+    public void onWomenOthers(View view) {
+        msg = "WomenOthers";
+    }
+
+    public void onMenCausal(View view) {
+        msg = "MenCasual";
+    }
+
+    public void onMenTraditional(View view) {
+        msg = "MenTraditional";
+    }
+
+    public void onMenWinter(View view) {
+        msg = "MenWinter";
+    }
+
+    public void onMenInner(View view) {
+        msg = "MenInner";
+    }
+
+    public void onMenOthers(View view) {
+        msg = "MenOthers";
+    }
 }

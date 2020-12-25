@@ -35,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Jeans/pants"
+        android:onClick="onKidsJeans"
         android:textSize="18dp"
         android:fontFamily="serif"
         android:layout_marginLeft="50dp"
@@ -45,6 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tops/Shirts"
+        android:onClick="onKidsTops"
         android:textSize="18dp"
         android:fontFamily="serif"
         android:layout_marginLeft="50dp"
@@ -54,6 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Night Wear"
+        android:onClick="onKidsNightWear"
         android:textSize="18dp"
         android:fontFamily="serif"
         android:layout_marginLeft="50dp"
@@ -63,18 +66,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Others"
+            android:onClick="onKidsOthers"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="12dp"
             ></RadioButton>
 
-    </RadioGroup>
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/clothingWomen"
-        >
 
         <TextView
             android:layout_width="match_parent"
@@ -93,6 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Casual Wear"
+            android:onClick="onWomenCasual"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
@@ -103,6 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Traditional wear/Kurthis/Sarees "
+            android:onClick="onWomenTraditional"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
@@ -112,6 +112,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Winter Wear/sweaters/hoddies"
+            android:onClick="onWomenWinter"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
@@ -121,6 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Inner Wear"
+            android:onClick="onWomenInner"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
@@ -130,18 +132,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Others"
+            android:onClick="onWomenOthers"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="12dp"
             ></RadioButton>
 
-    </RadioGroup>
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/clothingMen"
-        >
 
         <TextView
             android:layout_width="match_parent"
@@ -160,6 +157,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Casual Wear"
+            android:onClick="onMenCausal"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
@@ -170,6 +168,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Traditional wear/Kurthas"
+            android:onClick="onMenTraditional"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
@@ -180,6 +179,7 @@
             android:layout_height="wrap_content"
             android:text="Winter Wear/sweaters/hoddies"
             android:textSize="18dp"
+            android:onClick="onMenWinter"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
             ></RadioButton>
@@ -188,6 +188,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Inner Wear"
+            android:onClick="onMenInner"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
@@ -197,6 +198,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Others"
+            android:onClick="onMenOthers"
             android:textSize="18dp"
             android:fontFamily="serif"
             android:layout_marginLeft="50dp"
