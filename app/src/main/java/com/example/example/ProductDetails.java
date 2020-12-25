@@ -366,4 +366,34 @@ public class ProductDetails extends AppCompatActivity {
     {
         msg = "JewelleryOthers";
     }
+
+    public void onPencils(View view)
+    {
+        msg = "Pencils";
+    }
+
+    public void onNotebook(View view)
+    {
+        msg = "Notebook";
+    }
+
+    public void onSlambook(View view)
+    {
+        msg = "Slambook";
+    }
+
+    public void onTextbook(View view)
+    {
+        msg = "Textbook";
+    }
+
+    public void onStorybook(View view)
+    {
+        msg = "Storybook";
+    }
+
+    public void onStationeryOthers(View view)
+    {
+        msg = "StationeryOthers";
+    }
 }
