@@ -396,4 +396,83 @@ public class ProductDetails extends AppCompatActivity {
     {
         msg = "StationeryOthers";
     }
+
+    public void onTables(View view)
+    {
+        msg = "Tables";
+    }
+
+    public void onCupboards(View view)
+    {
+        msg = "Cupboards";
+    }
+
+    public void onBed(View view)
+    {
+        msg = "Bed";
+    }
+
+    public void onSofa(View view)
+    {
+        msg = "Sofa";
+    }
+
+    public void onChairs(View view)
+    {
+        msg = "Chairs";
+    }
+
+    public void onFurnitureOthers(View view)
+    {
+        msg = "FurnitureOthers";
+    }
+
+    public void onLipstick(View view) 
+    {
+        msg = "Lipstick";
+    }
+
+    public void onNail(View view) {
+        msg = "Nail";
+    }
+
+    public void onEyeliner(View view) {
+        msg = "Eyeliner";
+    }
+
+    public void onFaceCreams(View view) {
+        msg = "FaceCreams";
+    }
+
+    public void onHairSpray(View view) {
+        msg = "HairSpray";
+    }
+
+    public void onCosmeticsOthers(View view) {
+        msg = "CosmeticsOthers";
+    }
+
+    public void onPlates(View view) {
+        msg = "Plates";
+    }
+
+    public void onGlasses(View view) {
+        msg = "Glasses";
+    }
+
+    public void onUtensils(View view) {
+        msg = "Utensils";
+    }
+
+    public void onBedSheets(View view) {
+        msg = "BedSheets";
+    }
+
+    public void onCurtains(View view) {
+        msg = "Curtains";
+    }
+
+    public void onHouseholdOthers(View view) {
+        msg = "HouseHoldOthers";
+    }
 }
