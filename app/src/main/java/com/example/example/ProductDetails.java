@@ -62,6 +62,47 @@ public class ProductDetails extends AppCompatActivity {
                 {
                     Toast.makeText(ProductDetails.this, "Home Appliances: " + msg, Toast.LENGTH_SHORT).show();
                 }
+                else if(msg.equals("Earrings") || msg.equals("Necklace") || msg.equals("Bangles") || msg.equals("JewelleryOthers"))
+                {
+                    Toast.makeText(ProductDetails.this, "Jewellery: " + msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(msg.equals("Pencils") || msg.equals("Notebook") || msg.equals("Slambook") || msg.equals("Textbook") || msg.equals("Storybook") || msg.equals("StationeryOthers"))
+                {
+                    Toast.makeText(ProductDetails.this, "Stationery: " + msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(msg.equals("Tables") || msg.equals("Cupboards") || msg.equals("Bed") || msg.equals("Sofa") || msg.equals("Chairs") || msg.equals("FurnitureOthers"))
+                {
+                    Toast.makeText(ProductDetails.this, "Furniture: " + msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(msg.equals("Lipstick") || msg.equals("Nail") || msg.equals("Eyeliner") || msg.equals("FaceCreams") || msg.equals("HairSpray") || msg.equals("CosmeticsOthers"))
+                {
+                    Toast.makeText(ProductDetails.this, "Cosmetics: " + msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(msg.equals("Plates") || msg.equals("Glasses") || msg.equals("Utensils") || msg.equals("BedSheets") || msg.equals("Curtains") || msg.equals("HouseHoldOthers"))
+                {
+                    Toast.makeText(ProductDetails.this, "HouseHoldItems: " + msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(msg.equals("KidsJeans") || msg.equals("KidsTops") || msg.equals("KidsNightWear") || msg.equals("KidsOthers"))
+                {
+                    Toast.makeText(ProductDetails.this, "Clothing: kids: " + msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(msg.equals("WomenCasual") || msg.equals("WomenTraditional") || msg.equals("WomenWinter") || msg.equals("WomenInner") ||  msg.equals("WomenOthers"))
+                {
+                    Toast.makeText(ProductDetails.this, "Clothing: women: " + msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(msg.equals("MenCasual") || msg.equals("MenTraditional") || msg.equals("MenWinter") || msg.equals("MenInner") || msg.equals("MenOthers"))
+                {
+                    Toast.makeText(ProductDetails.this, "Clothing: Men: " + msg , Toast.LENGTH_SHORT).show();
+                }
+                else if(msg.equals("Grocery"))
+                {
+                    Toast.makeText(ProductDetails.this, "Groceries", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(ProductDetails.this, "Error Selection Option", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -271,6 +312,7 @@ public class ProductDetails extends AppCompatActivity {
 
     public void onGroceries(View view)
     {
+        msg = "Grocery";
         _electronicsLayout.removeView(ElecView);
        _homeAppliancesLayout.removeView(HomeApplView);
        _clothingLayout.removeView(ClothingView);
