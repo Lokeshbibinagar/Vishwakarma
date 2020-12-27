@@ -7,11 +7,18 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class ProductDetails extends AppCompatActivity {
+
+    EditText _productTitle,_productName,_productPrice,_productQuality,_productColor,_productDesc;
 
     LinearLayout _electronicsLayout,_homeAppliancesLayout,_clothingLayout,_jewelleryLayout,_cosmeticsLayout,_furnitureLayout,_householdLayout,_stationeryLayout;
     static int elecCount=0,homeApplCount=0,clothingCount=0,jewCount=0,cosCount=0,furCount=0,householdCount=0,stationeryCount=0;
@@ -23,6 +30,10 @@ public class ProductDetails extends AppCompatActivity {
     String msg="";
 
     Animation left,right,top,bottom;
+
+    DatabaseReference UserDB;
+    FirebaseAuth mAuth;
+    Products products;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,19 @@ public class ProductDetails extends AppCompatActivity {
 
         _productLayout.setAnimation(top);
 
+        _productTitle = findViewById(R.id.ProductTitle);
+        _productName = findViewById(R.id.ProductName);
+        _productPrice = findViewById(R.id.ProductPrice);
+        _productQuality = findViewById(R.id.Quantity);
+        _productColor = findViewById(R.id.Color);
+        _productDesc = findViewById(R.id.ProductDescription);
+
+
+        UserDB = FirebaseDatabase.getInstance("https://loca-e3bf3-default-rtdb.firebaseio.com/").getReference();
+        mAuth = FirebaseAuth.getInstance();
+
+
+
 
         _submit = findViewById(R.id.ProductSubmit);
 
@@ -55,7 +79,19 @@ public class ProductDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                String pt = _productTitle.getText().toString();
+                String pn = _productName.getText().toString();
+                String pp = _productPrice.getText().toString();
+                String pq = _productQuality.getText().toString();
+                String pc = _productColor.getText().toString();
+                String pd = _productDesc.getText().toString();
+
                 if (msg.equals("Mobile") || msg.equals("Tabs") || msg.equals("TV") || msg.equals("Computer") || msg.equals("Speaker") || msg.equals("ElectronicsOthers")) {
+
+                   products = new Products(pt,pn,pp,pq,pc,pd);
+                   UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").push().setValue(products);
+                   UserDB.child("Products").child("Electronics").child("Mobiles").setValue(products);
+
                     Toast.makeText(ProductDetails.this, "Electronics: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("WashingMachine") || msg.equals("Refrigerator") || msg.equals("AC") || msg.equals("Chimney") || msg.equals("Fans") || msg.equals("Lights") || msg.equals("HomeOthers"))
