@@ -1,5 +1,6 @@
 package com.example.example;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -86,52 +89,93 @@ public class ProductDetails extends AppCompatActivity {
                 String pc = _productColor.getText().toString();
                 String pd = _productDesc.getText().toString();
 
-                if (msg.equals("Mobile") || msg.equals("Tabs") || msg.equals("TV") || msg.equals("Computer") || msg.equals("Speaker") || msg.equals("ElectronicsOthers")) {
+                if (msg.equals("Mobile") || msg.equals("Tabs") || msg.equals("TV") || msg.equals("Computer") || msg.equals("Speaker") || msg.equals("ElectronicsOther")) {
 
                    products = new Products(pt,pn,pp,pq,pc,pd);
-                   UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").push().setValue(products);
-                   UserDB.child("Products").child("Electronics").child("Mobiles").setValue(products);
+                   UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Electronics").child(msg).push().setValue(products);
+                   UserDB.child("Products").child("Electronics").child(msg).push().setValue(products).addOnCompleteListener(new OnCompleteListener<Void>() {
+                       @Override
+                       public void onComplete(@NonNull Task<Void> task) {
+                           Toast.makeText(ProductDetails.this, "Success", Toast.LENGTH_SHORT).show();
+                       }
+                   });
 
                     Toast.makeText(ProductDetails.this, "Electronics: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("WashingMachine") || msg.equals("Refrigerator") || msg.equals("AC") || msg.equals("Chimney") || msg.equals("Fans") || msg.equals("Lights") || msg.equals("HomeOthers"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("HomeAppliances").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("HomeAppliances").child(msg).push().setValue(products);
                     Toast.makeText(ProductDetails.this, "Home Appliances: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Earrings") || msg.equals("Necklace") || msg.equals("Bangles") || msg.equals("JewelleryOthers"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Jewellery").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("Jewellery").child(msg).push().setValue(products).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(ProductDetails.this, "Success", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
                     Toast.makeText(ProductDetails.this, "Jewellery: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Pencils") || msg.equals("Notebook") || msg.equals("Slambook") || msg.equals("Textbook") || msg.equals("Storybook") || msg.equals("StationeryOthers"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Stationery").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("Stationery").child(msg).push().setValue(products);
                     Toast.makeText(ProductDetails.this, "Stationery: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Tables") || msg.equals("Cupboards") || msg.equals("Bed") || msg.equals("Sofa") || msg.equals("Chairs") || msg.equals("FurnitureOthers"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Furniture").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("Furniture").child(msg).push().setValue(products);
                     Toast.makeText(ProductDetails.this, "Furniture: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Lipstick") || msg.equals("Nail") || msg.equals("Eyeliner") || msg.equals("FaceCreams") || msg.equals("HairSpray") || msg.equals("CosmeticsOthers"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Cosmetics").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("Cosmetics").child(msg).push().setValue(products);
                     Toast.makeText(ProductDetails.this, "Cosmetics: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Plates") || msg.equals("Glasses") || msg.equals("Utensils") || msg.equals("BedSheets") || msg.equals("Curtains") || msg.equals("HouseHoldOthers"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("HouseholdItems").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("HouseholdItems").child(msg).push().setValue(products);
                     Toast.makeText(ProductDetails.this, "HouseHoldItems: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("KidsJeans") || msg.equals("KidsTops") || msg.equals("KidsNightWear") || msg.equals("KidsOthers"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Kids").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("Clothing").child("Kids").child(msg).push().setValue(products);
                     Toast.makeText(ProductDetails.this, "Clothing: kids: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("WomenCasual") || msg.equals("WomenTraditional") || msg.equals("WomenWinter") || msg.equals("WomenInner") ||  msg.equals("WomenOthers"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Women").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("Clothing").child("Women").child(msg).push().setValue(products);
                     Toast.makeText(ProductDetails.this, "Clothing: women: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("MenCasual") || msg.equals("MenTraditional") || msg.equals("MenWinter") || msg.equals("MenInner") || msg.equals("MenOthers"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Men").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("Clothing").child("Men").child(msg).push().setValue(products);
                     Toast.makeText(ProductDetails.this, "Clothing: Men: " + msg , Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Grocery"))
                 {
+                    products = new Products(pt,pn,pp,pq,pc,pd);
+                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Groceries").child(msg).push().setValue(products);
+                    UserDB.child("Products").child("Groceries").child(msg).push().setValue(products);
                     Toast.makeText(ProductDetails.this, "Groceries", Toast.LENGTH_SHORT).show();
                 }
                 else
