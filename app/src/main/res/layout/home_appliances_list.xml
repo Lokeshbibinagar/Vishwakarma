@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/HomeAppliancesGroup"
+        >
+
+        <RadioButton
+            android:id="@+id/washingMachine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Washing Machines"
+            android:onClick="onWashingMachine"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="22dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/refrigerators"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Refrigerators"
+            android:onClick="onRefrigerator"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/ac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Air Conditioners"
+            android:onClick="onAC"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/chimney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chimney"
+            android:onClick="onChimney"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/fans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fans"
+            android:onClick="onFans"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/lights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tube-lights/LED lights"
+            android:textSize="18dp"
+            android:onClick="onLights"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/HomeAppliancesOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:onClick="onHomeOthers"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+
+
+    </RadioGroup>
+
+
+</LinearLayout>
