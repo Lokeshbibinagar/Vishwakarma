@@ -1,14 +1,18 @@
 package com.example.example;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +33,7 @@ public class ProductDetails extends AppCompatActivity {
     LinearLayout _productLayout;
     TextView _productHeadTitle;
     Button _submit;
+    ImageView _productPhotos;
 
     String msg="";
 
@@ -37,6 +42,8 @@ public class ProductDetails extends AppCompatActivity {
     DatabaseReference UserDB;
     FirebaseAuth mAuth;
     Products products;
+
+    Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +76,23 @@ public class ProductDetails extends AppCompatActivity {
         _productColor = findViewById(R.id.Color);
         _productDesc = findViewById(R.id.ProductDescription);
 
+        _productPhotos = findViewById(R.id.productPhotos);
+
 
         UserDB = FirebaseDatabase.getInstance("https://loca-e3bf3-default-rtdb.firebaseio.com/").getReference();
         mAuth = FirebaseAuth.getInstance();
 
 
+        _productPhotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent,1);
+
+            }
+        });
 
 
         _submit = findViewById(R.id.ProductSubmit);
@@ -186,6 +205,18 @@ public class ProductDetails extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null)
+        {
+            imageUri = data.getData();
+
+            _productPhotos.setImageURI(imageUri);
+        }
     }
 
     public void onElectronics(View view)
