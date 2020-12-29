@@ -2,15 +2,16 @@ package com.example.example;
 
 public class Products
 {
-    String _productTitle,_productName,_productPrice,_productQuantity,_productColor,_productDescription;
+    String _productTitle,_productName,_productPrice,_productQuantity,_productColor,_productDescription,productImageUrl;
 
-    public Products(String _productTitle, String _productName, String _productPrice, String _productQuantity, String _productColor, String _productDescription) {
+    public Products(String _productTitle, String _productName, String _productPrice, String _productQuantity, String _productColor, String _productDescription, String productImageUrl) {
         this._productTitle = _productTitle;
         this._productName = _productName;
         this._productPrice = _productPrice;
         this._productQuantity = _productQuantity;
         this._productColor = _productColor;
         this._productDescription = _productDescription;
+        this.productImageUrl = productImageUrl;
     }
 
     public String get_productTitle() {
@@ -60,4 +61,13 @@ public class Products
     public void set_productDescription(String _productDescription) {
         this._productDescription = _productDescription;
     }
+
+    public String getProductImageUrl() {
+        return productImageUrl;
+    }
+
+    public void setProductImageUrl(String productImageUrl) {
+        this.productImageUrl = productImageUrl;
+    }
+
 }
