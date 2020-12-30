@@ -43,6 +43,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/itemPrice"
             android:text="Price: 100000 rs."
             android:textSize="18dp"
             android:textStyle="bold|italic"
