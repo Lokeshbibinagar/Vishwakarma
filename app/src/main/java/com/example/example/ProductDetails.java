@@ -231,44 +231,124 @@ public class ProductDetails extends AppCompatActivity {
                 }
                 else if(msg.equals("Lipstick") || msg.equals("Nail") || msg.equals("Eyeliner") || msg.equals("FaceCreams") || msg.equals("HairSpray") || msg.equals("CosmeticsOthers"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Cosmetics").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("Cosmetics").child(msg).push().setValue(products);
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Cosmetics").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("Cosmetics").child(msg).push().setValue(products);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                     Toast.makeText(ProductDetails.this, "Cosmetics: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Plates") || msg.equals("Glasses") || msg.equals("Utensils") || msg.equals("BedSheets") || msg.equals("Curtains") || msg.equals("HouseHoldOthers"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("HouseholdItems").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("HouseholdItems").child(msg).push().setValue(products);
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("HouseholdItems").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("HouseholdItems").child(msg).push().setValue(products);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                     Toast.makeText(ProductDetails.this, "HouseHoldItems: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("KidsJeans") || msg.equals("KidsTops") || msg.equals("KidsNightWear") || msg.equals("KidsOthers"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Kids").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("Clothing").child("Kids").child(msg).push().setValue(products);
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Kids").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("Clothing").child("Kids").child(msg).push().setValue(products);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
                     Toast.makeText(ProductDetails.this, "Clothing: kids: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("WomenCasual") || msg.equals("WomenTraditional") || msg.equals("WomenWinter") || msg.equals("WomenInner") ||  msg.equals("WomenOthers"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Women").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("Clothing").child("Women").child(msg).push().setValue(products);
+
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Women").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("Clothing").child("Women").child(msg).push().setValue(products);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                     Toast.makeText(ProductDetails.this, "Clothing: women: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("MenCasual") || msg.equals("MenTraditional") || msg.equals("MenWinter") || msg.equals("MenInner") || msg.equals("MenOthers"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Men").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("Clothing").child("Men").child(msg).push().setValue(products);
+
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Men").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("Clothing").child("Men").child(msg).push().setValue(products);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                     Toast.makeText(ProductDetails.this, "Clothing: Men: " + msg , Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Grocery"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Groceries").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("Groceries").child(msg).push().setValue(products);
+
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Groceries").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("Groceries").child(msg).push().setValue(products);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                     Toast.makeText(ProductDetails.this, "Groceries", Toast.LENGTH_SHORT).show();
                 }
                 else
