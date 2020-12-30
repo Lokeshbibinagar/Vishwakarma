@@ -139,36 +139,94 @@ public class ProductDetails extends AppCompatActivity {
                 }
                 else if(msg.equals("WashingMachine") || msg.equals("Refrigerator") || msg.equals("AC") || msg.equals("Chimney") || msg.equals("Fans") || msg.equals("Lights") || msg.equals("HomeOthers"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("HomeAppliances").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("HomeAppliances").child(msg).push().setValue(products);
+
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("HomeAppliances").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("HomeAppliances").child(msg).push().setValue(products);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+
+
                     Toast.makeText(ProductDetails.this, "Home Appliances: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Earrings") || msg.equals("Necklace") || msg.equals("Bangles") || msg.equals("JewelleryOthers"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Jewellery").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("Jewellery").child(msg).push().setValue(products).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(ProductDetails.this, "Success", Toast.LENGTH_SHORT).show();
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Jewellery").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("Jewellery").child(msg).push().setValue(products).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(ProductDetails.this, "Success", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     });
+
 
                     Toast.makeText(ProductDetails.this, "Jewellery: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Pencils") || msg.equals("Notebook") || msg.equals("Slambook") || msg.equals("Textbook") || msg.equals("Storybook") || msg.equals("StationeryOthers"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Stationery").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("Stationery").child(msg).push().setValue(products);
+
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Stationery").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("Stationery").child(msg).push().setValue(products);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                     Toast.makeText(ProductDetails.this, "Stationery: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Tables") || msg.equals("Cupboards") || msg.equals("Bed") || msg.equals("Sofa") || msg.equals("Chairs") || msg.equals("FurnitureOthers"))
                 {
-                    products = new Products(pt,pn,pp,pq,pc,pd,"");
-                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Furniture").child(msg).push().setValue(products);
-                    UserDB.child("Products").child("Furniture").child(msg).push().setValue(products);
+                    StorageReference fileReference = mStorage.child("Product Photos").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                    fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
+                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Furniture").child(msg).push().setValue(products);
+                            UserDB.child("Products").child("Furniture").child(msg).push().setValue(products);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProductDetails.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+
                     Toast.makeText(ProductDetails.this, "Furniture: " + msg, Toast.LENGTH_SHORT).show();
                 }
                 else if(msg.equals("Lipstick") || msg.equals("Nail") || msg.equals("Eyeliner") || msg.equals("FaceCreams") || msg.equals("HairSpray") || msg.equals("CosmeticsOthers"))
