@@ -4,6 +4,8 @@ public class Products
 {
     String _productTitle,_productName,_productPrice,_productQuantity,_productColor,_productDescription,productImageUrl;
 
+    public Products() {}
+
     public Products(String _productTitle, String _productName, String _productPrice, String _productQuantity, String _productColor, String _productDescription, String productImageUrl) {
         this._productTitle = _productTitle;
         this._productName = _productName;
