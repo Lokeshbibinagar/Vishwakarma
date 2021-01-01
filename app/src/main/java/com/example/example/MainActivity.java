@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -50,9 +51,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot ElectronicsSnapshot : dataSnapshot.getChildren())
+                for(DataSnapshot HeadSnapshot : dataSnapshot.getChildren())
                 {
-                    for(DataSnapshot mobileSnapshot : ElectronicsSnapshot.getChildren())
+
+                    if(HeadSnapshot.hasChild("Kids") )
+                    {
+                        Toast.makeText(MainActivity.this, "Found", Toast.LENGTH_SHORT).show();
+                    }
+
+                    for(DataSnapshot mobileSnapshot : HeadSnapshot.getChildren())
                     {
                         for(DataSnapshot itemSnapshot : mobileSnapshot.getChildren())
                         {
