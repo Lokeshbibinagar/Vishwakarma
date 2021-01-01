@@ -43,8 +43,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         holder._itemName.setText(currentProduct.get_productName());
         holder._itemPrice.setText(currentProduct.get_productPrice());
         Picasso.get().load(currentProduct.getProductImageUrl())
-                .fit()
-                .centerCrop()
                 .into(holder._itemImage);
 
 

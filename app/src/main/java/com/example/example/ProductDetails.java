@@ -125,9 +125,20 @@ public class ProductDetails extends AppCompatActivity {
                     fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            products = new Products(pt,pn,pp,pq,pc,pd,taskSnapshot.getStorage().getDownloadUrl().toString());
-                            UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Electronics").child(msg).push().setValue(products);
-                            UserDB.child("Products").child("Electronics").child(msg).push().setValue(products);
+
+                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Electronics").child(msg).push().setValue(products);
+                                    UserDB.child("Products").child("Electronics").child(msg).push().setValue(products);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(ProductDetails.this, "Unable to load Image", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
