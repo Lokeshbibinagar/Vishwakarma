@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,14 +32,18 @@ public class MainActivity extends AppCompatActivity
       DatabaseReference mDataReff;
       List<Products> mProducts;
 
+      SwipeRefreshLayout _swipeRefresh;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         b = findViewById(R.id.button);
 
+        _swipeRefresh = findViewById(R.id.swipeRefresh);
+
         mRecyclerView = findViewById(R.id.recyclerView);
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(false);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
@@ -51,24 +56,34 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot HeadSnapshot : dataSnapshot.getChildren())
-                {
+                for(DataSnapshot HeadSnapshot : dataSnapshot.getChildren()) {
 
-                    if(HeadSnapshot.hasChild("Kids") )
-                    {
-                        Toast.makeText(MainActivity.this, "Found", Toast.LENGTH_SHORT).show();
+                    if (HeadSnapshot.hasChild("Kids") || HeadSnapshot.hasChild("Women")) {
+                        for (DataSnapshot grandParentSnapshot : HeadSnapshot.getChildren()) {
+                            for (DataSnapshot parentSnapshot : grandParentSnapshot.getChildren()) {
+                                for (DataSnapshot childSnapshot : parentSnapshot.getChildren()) {
+                                    Products _products = childSnapshot.getValue(Products.class);
+                                    mProducts.add(_products);
+                                }
+                            }
+                        }
                     }
 
-                    for(DataSnapshot mobileSnapshot : HeadSnapshot.getChildren())
-                    {
-                        for(DataSnapshot itemSnapshot : mobileSnapshot.getChildren())
-                        {
-                            Products _products = itemSnapshot.getValue(Products.class);
-                            mProducts.add(_products);
+                    else if(HeadSnapshot.hasChild("_productColor")){
+                        Products _products = HeadSnapshot.getValue(Products.class);
+                        mProducts.add(_products);
+                    }
+                    else{
+                        for (DataSnapshot mobileSnapshot : HeadSnapshot.getChildren()) {
+                            for (DataSnapshot itemSnapshot : mobileSnapshot.getChildren()) {
+                                Products _products = itemSnapshot.getValue(Products.class);
+                                mProducts.add(_products);
+                            }
                         }
                     }
                 }
                 mProductsAdapter = new ProductsAdapter(MainActivity.this,mProducts);
+                mProductsAdapter.notifyDataSetChanged();
                 mRecyclerView.setAdapter(mProductsAdapter);
             }
 
@@ -85,5 +100,21 @@ public class MainActivity extends AppCompatActivity
                 startActivity(product);
             }
         });
+
+
+        _swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Refresh();
+                _swipeRefresh.setRefreshing(false);
+
+            }
+        });
+
+    }
+
+    public void Refresh() {
+
+
     }
 }
