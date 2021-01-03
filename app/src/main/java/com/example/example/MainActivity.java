@@ -8,6 +8,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -122,4 +125,30 @@ public class MainActivity extends AppCompatActivity
         overridePendingTransition(0,0);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater  = getMenuInflater();
+        menuInflater.inflate(R.menu.main_menu_layout,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        switch (item.getItemId())
+        {
+            case R.id.settings:
+                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.profile:
+                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
+    }
 }
