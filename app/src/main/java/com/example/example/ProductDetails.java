@@ -51,9 +51,6 @@ public class ProductDetails extends AppCompatActivity {
     FirebaseAuth mAuth;
     StorageReference mStorage;
 
-
-
-
     Products products;
 
     Uri imageUri;

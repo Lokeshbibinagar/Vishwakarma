@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.app.UiAutomation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +35,10 @@ public class MainActivity extends AppCompatActivity
       ProductsAdapter mProductsAdapter;
 
       DatabaseReference mDataReff;
+      FirebaseAuth mAuth;
       List<Products> mProducts;
+
+
 
       SwipeRefreshLayout _swipeRefresh;
 
@@ -51,6 +56,8 @@ public class MainActivity extends AppCompatActivity
 
 
         mProducts = new ArrayList<>();
+
+        mAuth = FirebaseAuth.getInstance();
 
         mDataReff = FirebaseDatabase.getInstance("https://loca-e3bf3-default-rtdb.firebaseio.com/").getReference();
 
@@ -102,9 +109,13 @@ public class MainActivity extends AppCompatActivity
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent product = new Intent(MainActivity.this,ProductDetails.class);
-                startActivity(product);
+
+
+                Intent products = new Intent(MainActivity.this,ProductDetails.class);
+                startActivity(products);
+
             }
+
         });
 
 
