@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -49,6 +50,8 @@ public class ProductDetails extends AppCompatActivity {
     DatabaseReference UserDB;
     FirebaseAuth mAuth;
     StorageReference mStorage;
+
+
 
 
     Products products;
@@ -463,6 +466,8 @@ public class ProductDetails extends AppCompatActivity {
                     Toast.makeText(ProductDetails.this, "Error Selection Option", Toast.LENGTH_SHORT).show();
                 }
 
+                Intent main = new Intent(ProductDetails.this,MainActivity.class);
+                startActivity(main);
             }
         });
 

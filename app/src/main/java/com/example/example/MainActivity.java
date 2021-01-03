@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity
 
         mProducts = new ArrayList<>();
 
-
         mDataReff = FirebaseDatabase.getInstance("https://loca-e3bf3-default-rtdb.firebaseio.com/").getReference();
 
         mDataReff.child("Products").addValueEventListener(new ValueEventListener() {
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity
                                 for (DataSnapshot childSnapshot : parentSnapshot.getChildren()) {
                                     Products _products = childSnapshot.getValue(Products.class);
                                     mProducts.add(_products);
+
                                 }
                             }
                         }
@@ -72,19 +72,22 @@ public class MainActivity extends AppCompatActivity
                     else if(HeadSnapshot.hasChild("_productColor")){
                         Products _products = HeadSnapshot.getValue(Products.class);
                         mProducts.add(_products);
+
                     }
                     else{
                         for (DataSnapshot mobileSnapshot : HeadSnapshot.getChildren()) {
                             for (DataSnapshot itemSnapshot : mobileSnapshot.getChildren()) {
                                 Products _products = itemSnapshot.getValue(Products.class);
                                 mProducts.add(_products);
+
                             }
                         }
                     }
                 }
                 mProductsAdapter = new ProductsAdapter(MainActivity.this,mProducts);
-                mProductsAdapter.notifyDataSetChanged();
                 mRecyclerView.setAdapter(mProductsAdapter);
+
+
             }
 
             @Override
@@ -114,7 +117,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void Refresh() {
-
-
+        finish();
+        startActivity(getIntent());
+        overridePendingTransition(0,0);
     }
+
 }
