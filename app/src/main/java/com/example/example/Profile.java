@@ -2,6 +2,8 @@ package com.example.example;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -13,12 +15,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Profile extends AppCompatActivity {
 
 
     TextView userName,phone,email,address,companyName,companyAddress;
 
-    DatabaseReference UserDB;
+    RecyclerView mProfileView;
+    UserProductAdapter mProfileAdapter;
+    List<Products> mProfileProduct;
+
+
+    DatabaseReference UserDB,ProfileDB;
     FirebaseAuth mAuth;
 
     @Override
@@ -28,8 +38,10 @@ public class Profile extends AppCompatActivity {
 
 
         UserDB = FirebaseDatabase.getInstance("https://loca-e3bf3-default-rtdb.firebaseio.com/").getReference();
+        ProfileDB = FirebaseDatabase.getInstance("https://loca-e3bf3-default-rtdb.firebaseio.com/").getReference();
         mAuth = FirebaseAuth.getInstance();
 
+        mProfileProduct = new ArrayList<>();
 
         userName = findViewById(R.id.profileUsername);
         phone = findViewById(R.id.profilePhone);
@@ -37,6 +49,12 @@ public class Profile extends AppCompatActivity {
         address = findViewById(R.id.profileAddress);
         companyName = findViewById(R.id.profileCompanyName);
         companyAddress = findViewById(R.id.profileCompanyAddress);
+
+        mProfileView = findViewById(R.id.profileRecyclerView);
+        mProfileView.setHasFixedSize(false);
+        mProfileView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         UserDB.child("Users").child(mAuth.getUid()).child("UserDetails").addValueEventListener(new ValueEventListener() {
             @Override
@@ -55,6 +73,50 @@ public class Profile extends AppCompatActivity {
                 companyName.setText("Company Name: " + _companyName);
                 companyAddress.setText("Company Address: " + _companyAddress);
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        ProfileDB.child("Users").child(mAuth.getUid()).child("ProductDetails").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot HeadSnapshot : dataSnapshot.getChildren()) {
+
+                    if (HeadSnapshot.hasChild("Kids") || HeadSnapshot.hasChild("Women")) {
+                        for (DataSnapshot grandParentSnapshot : HeadSnapshot.getChildren()) {
+                            for (DataSnapshot parentSnapshot : grandParentSnapshot.getChildren()) {
+                                for (DataSnapshot childSnapshot : parentSnapshot.getChildren()) {
+                                    Products _products = childSnapshot.getValue(Products.class);
+                                    mProfileProduct.add(_products);
+
+                                }
+                            }
+                        }
+                    }
+
+                    else if(HeadSnapshot.hasChild("_productColor")){
+                        Products _products = HeadSnapshot.getValue(Products.class);
+                       mProfileProduct.add(_products);
+
+                    }
+                    else{
+                        for (DataSnapshot mobileSnapshot : HeadSnapshot.getChildren()) {
+                            for (DataSnapshot itemSnapshot : mobileSnapshot.getChildren()) {
+                                Products _products = itemSnapshot.getValue(Products.class);
+                               mProfileProduct.add(_products);
+
+                            }
+                        }
+                    }
+                }
+
+                mProfileAdapter = new UserProductAdapter(Profile.this,mProfileProduct);
+                mProfileView.setAdapter(mProfileAdapter);
             }
 
             @Override
