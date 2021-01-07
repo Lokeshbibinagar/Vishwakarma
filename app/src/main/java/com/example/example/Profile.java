@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +33,8 @@ public class Profile extends AppCompatActivity {
     DatabaseReference UserDB,ProfileDB;
     FirebaseAuth mAuth;
 
+    SwipeRefreshLayout _profileRefresh;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,8 @@ public class Profile extends AppCompatActivity {
         mProfileView = findViewById(R.id.profileRecyclerView);
         mProfileView.setHasFixedSize(false);
         mProfileView.setLayoutManager(new LinearLayoutManager(this));
+
+        _profileRefresh = findViewById(R.id.profileRefresh);
 
 
 
@@ -126,5 +132,21 @@ public class Profile extends AppCompatActivity {
         });
 
 
+        _profileRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                ProfileRefresh();
+                _profileRefresh.setRefreshing(false);
+            }
+        });
+
     }
+    public void ProfileRefresh()
+    {
+        finish();
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+        Toast.makeText(this, "Refreshing", Toast.LENGTH_SHORT).show();
+    }
+
 }
