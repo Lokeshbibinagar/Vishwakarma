@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E4E4E4"
+    tools:context=".Profile">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profileScrollbar"
+        tools:ignore="MissingConstraints">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:id="@+id/profileBackground"
+                android:src="@drawable/gradient"
+                > </ImageView>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profilePicture"
+                android:src="@drawable/ic_baseline_image_24"
+                android:padding="5dp"
+                android:background="#ffff"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="55dp"></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileUsername"
+                android:layout_toRightOf="@+id/profilePicture"
+                android:text="User Name"
+                android:layout_marginTop="65dp"
+                android:textSize="25dp"
+                android:padding="20dp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                ></TextView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profilePhone"
+                android:text="Phone Number"
+                android:layout_below="@+id/profilePicture"
+                android:layout_marginTop="40dp"
+                android:textSize="18dp"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileEmail"
+                android:text="Email Address"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                android:layout_below="@+id/profilePhone"
+                android:textSize="18dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileAddress"
+                android:text="User Address"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                android:layout_below="@+id/profileEmail"
+                android:textSize="18dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileCompanyName"
+                android:text="Company Name"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                android:layout_below="@+id/profileAddress"
+                android:textSize="18dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileCompanyAddress"
+                android:text="Company Address"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                android:layout_below="@+id/profileCompanyName"
+                android:textSize="18dp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileCompanyAddress"
+                ></androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

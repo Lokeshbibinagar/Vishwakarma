@@ -154,7 +154,8 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.profile:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                Intent profile = new Intent(MainActivity.this,Profile.class);
+                startActivity(profile);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
