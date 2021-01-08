@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/electronicsGroup"
+        >
+
+        <RadioButton
+            android:id="@+id/mobiles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mobiles"
+            android:onClick="onMobile"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="22dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tabs/ipads"
+            android:onClick="onTabs"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Televisions"
+            android:onClick="onTV"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/computer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Computer/laptops"
+            android:onClick="onComputer"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/Speaker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Speakers/Peripheral devices"
+            android:textSize="18dp"
+            android:onClick="onSpeaker"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/elecOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:onClick="onElectronicsOthers"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+
+
+    </RadioGroup>
+
+</LinearLayout>

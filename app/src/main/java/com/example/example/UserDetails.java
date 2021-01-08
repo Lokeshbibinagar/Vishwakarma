@@ -94,7 +94,7 @@ public class UserDetails extends AppCompatActivity
                 }
                 else {
                     _users = new Users(_firstName, _lastName, _dob, _gender, _email, _phoneNumber, _address, _companyName, _companyAddress);
-                    userData.child("Users").child(mAuth.getUid()).setValue(_users);
+                    userData.child("Users").child(mAuth.getUid()).child("UserDetails").setValue(_users);
 
 
                     Intent main = new Intent(UserDetails.this, MainActivity.class);

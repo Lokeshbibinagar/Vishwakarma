@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/HomeAppliancesGroup"
+        >
+
+        <RadioButton
+            android:id="@+id/Tables"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tables"
+            android:onClick="onTables"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="22dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/Cupboards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cupboards"
+            android:onClick="onCupboards"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/bed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bed"
+            android:onClick="onBed"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/Sofa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sofa"
+            android:onClick="onSofa"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/chairs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chairs"
+            android:onClick="onChairs"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/CosmeticsOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:onClick="onFurnitureOthers"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+
+    </RadioGroup>
+
+
+</LinearLayout>

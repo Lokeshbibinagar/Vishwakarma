@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/StationeryGroup"
+        >
+
+        <RadioButton
+            android:id="@+id/pencils"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pencils/Pens etc"
+            android:onClick="onPencils"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="22dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/notebooks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notebooks"
+            android:onClick="onNotebook"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/scrapbook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scrapbooks/slam books"
+            android:onClick="onSlambook"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/textbooks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Text books"
+            android:onClick="onTextbook"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/storybooks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Story books"
+            android:onClick="onStorybook"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/StationeryOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:onClick="onStationeryOthers"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+
+    </RadioGroup>
+
+</LinearLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/HomeAppliancesGroup"
+        >
+
+        <RadioButton
+            android:id="@+id/lipstick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lipstick/lip balm"
+            android:onClick="onLipstick"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="22dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/nailPaint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nail paint/nail paint remover"
+           android:onClick="onNail"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/eyeliner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eyeliner/Kajal/Eye Shades"
+            android:onClick="onEyeliner"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/faceCreams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Face Creams/Face Wash"
+            android:onClick="onFaceCreams"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/HairSpray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hair Spray"
+            android:onClick="onHairSpray"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+        <RadioButton
+            android:id="@+id/CosmeticsOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:onClick="onCosmeticsOthers"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="50dp"
+            ></RadioButton>
+
+    </RadioGroup>
+
+
+
+</LinearLayout>
