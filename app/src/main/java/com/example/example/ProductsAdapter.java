@@ -1,11 +1,13 @@
 package com.example.example;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,6 +47,21 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         Picasso.get().load(mProducts.get(position).getProductImageUrl())
                 .into(holder._itemImage);
 
+        String ilong = mProducts.get(position).getProductLong();
+        String ilat = mProducts.get(position).getProductLat();
+
+        holder._itemLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent map = new Intent(mContext,MapActivity.class);
+                map.putExtra("mapLong",ilong);
+                map.putExtra("mapLat",ilat);
+                mContext.startActivity(map);
+            }
+        });
+
+
+
 
     }
 
@@ -57,7 +74,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
     {
 
         public TextView _itemTitle,_itemName,_itemPrice;
-        public ImageView _itemImage;
+        public ImageView _itemImage,_itemLocation;
 
         public ProductHolder(@NonNull View itemView) {
             super(itemView);
@@ -66,6 +83,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             _itemName = itemView.findViewById(R.id.itemName);
             _itemPrice = itemView.findViewById(R.id.itemPrice);
             _itemImage = itemView.findViewById(R.id.itemImage);
+            _itemLocation = itemView.findViewById(R.id.itemLocation);
 
         }
     }
