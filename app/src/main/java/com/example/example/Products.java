@@ -2,17 +2,19 @@ package com.example.example;
 
 public class Products
 {
-    String _productTitle,_productName,_productPrice,_productQuantity,_productColor,_productDescription,productImageUrl;
+    String _productTitle,_productName,_productPrice,_productQuantity,_productColor,_productDescription,productLong,productLat,productImageUrl;
 
     public Products() {}
 
-    public Products(String _productTitle, String _productName, String _productPrice, String _productQuantity, String _productColor, String _productDescription, String productImageUrl) {
+    public Products(String _productTitle, String _productName, String _productPrice, String _productQuantity, String _productColor, String _productDescription, String _productLong, String _productLat, String productImageUrl) {
         this._productTitle = _productTitle;
         this._productName = _productName;
         this._productPrice = _productPrice;
         this._productQuantity = _productQuantity;
         this._productColor = _productColor;
         this._productDescription = _productDescription;
+        this.productLong = _productLong;
+        this.productLat = _productLat;
         this.productImageUrl = productImageUrl;
     }
 
@@ -72,4 +74,19 @@ public class Products
         this.productImageUrl = productImageUrl;
     }
 
+    public String getProductLong() {
+        return productLong;
+    }
+
+    public void setProductLong(String productLong) {
+        this.productLong = productLong;
+    }
+
+    public String getProductLat() {
+        return productLat;
+    }
+
+    public void setProductLat(String productLat) {
+        this.productLat = productLat;
+    }
 }

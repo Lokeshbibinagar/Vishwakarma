@@ -101,11 +101,42 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Product location details"
+                android:textSize="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp"
+                android:padding="15dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/productLong"
+                android:hint="Longitude"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="40dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/productLat"
+                android:hint="Latitude"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="40dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Product Picture"
+                android:layout_marginTop="15dp"
                 android:textSize="15dp"
                 android:padding="15dp"
                 android:layout_marginLeft="30dp"
                 ></TextView>
+
 
             <ImageView
                 android:id="@+id/productPhotos"

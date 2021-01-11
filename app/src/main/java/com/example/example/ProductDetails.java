@@ -33,7 +33,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class ProductDetails extends AppCompatActivity {
 
-    EditText _productTitle,_productName,_productPrice,_productQuality,_productColor,_productDesc;
+    EditText _productTitle,_productName,_productPrice,_productQuality,_productColor,_productDesc,_productLong,_productLat;
 
     LinearLayout _electronicsLayout,_homeAppliancesLayout,_clothingLayout,_jewelleryLayout,_cosmeticsLayout,_furnitureLayout,_householdLayout,_stationeryLayout;
     static int elecCount=0,homeApplCount=0,clothingCount=0,jewCount=0,cosCount=0,furCount=0,householdCount=0,stationeryCount=0;
@@ -85,6 +85,8 @@ public class ProductDetails extends AppCompatActivity {
         _productQuality = findViewById(R.id.Quantity);
         _productColor = findViewById(R.id.Color);
         _productDesc = findViewById(R.id.ProductDescription);
+        _productLong = findViewById(R.id.productLong);
+        _productLat = findViewById(R.id.productLat);
 
         _productPhotos = findViewById(R.id.productPhotos);
 
@@ -118,6 +120,8 @@ public class ProductDetails extends AppCompatActivity {
                 String pq = _productQuality.getText().toString();
                 String pc = _productColor.getText().toString();
                 String pd = _productDesc.getText().toString();
+                String plong = _productLong.getText().toString();
+                String plat = _productLat.getText().toString();
 
                 if (msg.equals("Mobile") || msg.equals("Tabs") || msg.equals("TV") || msg.equals("Computer") || msg.equals("Speaker") || msg.equals("ElectronicsOther")) {
 
@@ -129,7 +133,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Electronics").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("Electronics").child(msg).push().setValue(products);
                                 }
@@ -159,7 +163,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("HomeAppliances").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("HomeAppliances").child(msg).push().setValue(products);
                                 }
@@ -192,7 +196,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Jewellery").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("Jewellery").child(msg).push().setValue(products);
                                 }
@@ -222,7 +226,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Stationery").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("Stationery").child(msg).push().setValue(products);
                                 }
@@ -253,7 +257,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Furniture").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("Furniture").child(msg).push().setValue(products);
                                 }
@@ -284,7 +288,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Cosmetics").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("Cosmetics").child(msg).push().setValue(products);
                                 }
@@ -315,7 +319,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("HouseholdItems").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("HouseholdItems").child(msg).push().setValue(products);
                                 }
@@ -345,7 +349,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Kids").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("Clothing").child("Kids").child(msg).push().setValue(products);
                                 }
@@ -375,7 +379,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Women").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("Clothing").child("Women").child(msg).push().setValue(products);
                                 }
@@ -405,7 +409,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Clothing").child("Men").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("Clothing").child("Men").child(msg).push().setValue(products);
                                 }
@@ -437,7 +441,7 @@ public class ProductDetails extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    products = new Products(pt,pn,pp,pq,pc,pd,uri.toString());
+                                    products = new Products(pt,pn,pp,pq,pc,pd,plong,plat,uri.toString());
                                     UserDB.child("Users").child(mAuth.getUid()).child("ProductDetails").child("Groceries").child(msg).push().setValue(products);
                                     UserDB.child("Products").child("Groceries").child(msg).push().setValue(products);
                                 }
