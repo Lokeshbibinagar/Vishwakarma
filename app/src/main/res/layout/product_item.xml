@@ -12,39 +12,55 @@
         android:layout_margin="15dp"
         android:background="#fff"
         >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linear"
+    android:layout_marginTop="10dp"
+    >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        >
 
         <TextView
+            android:id="@+id/itemTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/itemTitle"
+            android:padding="15dp"
             android:text="Title"
             android:textSize="18dp"
-            android:textStyle="bold"
-            android:padding="15dp"
-            />
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/itemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/itemName"
-            android:text="Product Name"
             android:layout_toRightOf="@+id/itemTitle"
             android:padding="15dp"
+            android:text="Product Name"
             android:textSize="18dp"
-            android:textStyle="italic"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
+            android:textStyle="italic" />
+    </RelativeLayout>
+
+    <ImageView
+            android:layout_weight="0.2"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:id="@+id/itemLocation"
             android:src="@drawable/ic_baseline_location_on_24"
-            android:layout_toRightOf="@+id/itemName"
+            android:layout_toRightOf="@+id/header"
             android:padding="15dp"/>
+</LinearLayout>
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
             android:id="@+id/itemImage"
-            android:layout_below="@id/itemTitle"
+            android:layout_below="@id/linear"
             android:padding="15dp"
             />
         <TextView
