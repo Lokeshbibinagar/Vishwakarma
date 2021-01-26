@@ -2,9 +2,9 @@ package com.example.example;
 
 public class Users
 {
-    String firstName,lastName,dob,gender,email,phoneNumber,address,companyName,companyAddress;
+    String firstName,lastName,dob,gender,email,phoneNumber,address,companyName,companyAddress,profileUrl;
 
-    public Users(String firstName, String lastName, String dob, String gender, String email, String phoneNumber, String address,String companyName ,String companyAddress) {
+    public Users(String firstName, String lastName, String dob, String gender, String email, String phoneNumber, String address,String companyName ,String companyAddress, String profileUrl) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
@@ -14,6 +14,7 @@ public class Users
         this.address = address;
         this.companyName = companyName;
         this.companyAddress = companyAddress;
+        this.profileUrl = profileUrl;
     }
 
     public String getFirstName() {
@@ -26,6 +27,14 @@ public class Users
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
     }
 
     public void setLastName(String lastName) {

@@ -33,6 +33,16 @@
                 android:textStyle="bold|italic"
                 android:gravity="center_horizontal" />
 
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/profilePic"
+                android:src="@drawable/ic_baseline_image_24"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="30dp"
+                android:padding="15dp"
+                />
+
             <EditText
                 android:id="@+id/FirstName"
                 android:layout_width="match_parent"
