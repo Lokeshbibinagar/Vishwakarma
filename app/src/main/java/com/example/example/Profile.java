@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,7 @@ public class Profile extends AppCompatActivity {
 
 
     TextView userName,phone,email,address,companyName,companyAddress;
+    ImageView profilePic;
 
     RecyclerView mProfileView;
     UserProductAdapter mProfileAdapter;
@@ -47,6 +50,7 @@ public class Profile extends AppCompatActivity {
 
         mProfileProduct = new ArrayList<>();
 
+        profilePic = findViewById(R.id.profilePicture);
         userName = findViewById(R.id.profileUsername);
         phone = findViewById(R.id.profilePhone);
         email = findViewById(R.id.profileEmail);
@@ -72,12 +76,15 @@ public class Profile extends AppCompatActivity {
                 String _address = dataSnapshot.child("address").getValue().toString();
                 String _companyName = dataSnapshot.child("companyName").getValue().toString();
                 String _companyAddress = dataSnapshot.child("companyAddress").getValue().toString();
+                String _profileUrl = dataSnapshot.child("profileUrl").getValue().toString();
                 userName.setText(_firstName + " " + _lastName);
                 phone.setText("Phone: " + _phone);
                 email.setText("E-mail: " + _email);
                 address.setText("Address: "+_address);
                 companyName.setText("Company Name: " + _companyName);
                 companyAddress.setText("Company Address: " + _companyAddress);
+
+                Picasso.get().load(_profileUrl).into(profilePic);
 
             }
 
