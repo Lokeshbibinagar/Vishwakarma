@@ -147,7 +147,8 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case R.id.settings:
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                Intent settings = new Intent(MainActivity.this,Settings.class);
+                startActivity(settings);
                 return true;
             case R.id.profile:
                 Intent profile = new Intent(MainActivity.this,Profile.class);
