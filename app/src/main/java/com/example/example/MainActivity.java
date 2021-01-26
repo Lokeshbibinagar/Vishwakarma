@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity
       FirebaseAuth mAuth;
       List<Products> mProducts;
 
-
-
       SwipeRefreshLayout _swipeRefresh;
 
     @Override
@@ -146,8 +144,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-
         switch (item.getItemId())
         {
             case R.id.settings:
@@ -160,7 +156,5 @@ public class MainActivity extends AppCompatActivity
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-
     }
 }
