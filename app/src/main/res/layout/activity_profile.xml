@@ -108,6 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/profileRecyclerView"
+                android:nestedScrollingEnabled="false"
                 android:layout_below="@+id/profileCompanyAddress"
                 ></androidx.recyclerview.widget.RecyclerView>
 
